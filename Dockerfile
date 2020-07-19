@@ -9,23 +9,20 @@ ENV RAILS_ENV=${RAILS_ENV} \
     DEVELOPMENT_DATABASE_USERNAME=${DEVELOPMENT_DATABASE_USERNAME} \
     LANG=C.UTF-8 \
     DEVELOPMENT_DATABASE_HOST=${DEVELOPMENT_DATABASE_HOST}
-    
+
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN apt-get install yarn -y
-RUN mkdir /docker-rails
-WORKDIR /docker-rails
-COPY Gemfile /docker-rails/Gemfile
-COPY Gemfile.lock /docker-rails/Gemfile.lock
+
+# Preparing Rails app dependencies
+COPY Gemfile* ./
+RUN gem install bundler -v 1.17.3
 RUN bundle install
-COPY . /docker-rails
-RUN apt-get install npm -y
-RUN npm install yarn
+COPY . ./
 
+RUN rake db:drop \
+    rake db:create \
+    rake db:migrate
 
-# Add a script to be executed every time the containers starts.
-COPY entrypoint.sh /usr/bin
-RUN chmod 777 /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
-CMD rails s -p 3000
+CMD bundle exec rails s -b 0.0.0.0

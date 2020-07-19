@@ -3,13 +3,16 @@ services:
   db: 
     image: postgres
     environment:
-      POSTGRES_DB: db
+      POSTGRES_DB: helping_community_development
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes: 
       - postgres:/var/lib/postgresql/data
+    ports:
+      - "3306"
+    expose:
+      - "3306"
   web: 
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes: 
       - .:/docker-rails
       - bundler_gems:/usr/local/bundle
