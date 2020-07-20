@@ -19,10 +19,10 @@ WORKDIR /myapp
 
 # Preparing Rails app dependencies
 COPY Gemfile* ./
-RUN gem install bundler -v 1.17.3
+RUN gem install bundler
 RUN bundle install
-COPY . ./
 
+COPY . ./
 
 EXPOSE 3000
 
