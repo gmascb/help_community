@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Instaling with docker and compose
+  * [Installing docker](https://docs.docker.com/engine/install/ubuntu/)
+  * After docker is installed run
+    * docker-compose up --build
+      * now your service is built and running.
+    * to create the databases in postgresql image run
+      * docker exec -it helping_community_web_1 sh
+      * $ rake db:create
+      * Remember that every-time you make a new migration for the databases
+        * usefull commands:
+          * rake db:drop
+          * rake db:create
+          * rake db:migrate
+          * rake db:seed
+        

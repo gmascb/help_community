@@ -13,15 +13,16 @@ ENV RAILS_ENV=${RAILS_ENV} \
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN apt-get install yarn -y
 
+# prepareing enviroments
+RUN mkdir /myapp
+WORKDIR /myapp
+
 # Preparing Rails app dependencies
 COPY Gemfile* ./
 RUN gem install bundler -v 1.17.3
 RUN bundle install
 COPY . ./
 
-RUN rake db:drop \
-    rake db:create \
-    rake db:migrate
 
 EXPOSE 3000
 

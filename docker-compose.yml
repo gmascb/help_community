@@ -3,18 +3,14 @@ services:
   db: 
     image: postgres
     environment:
-      POSTGRES_DB: helping_community_development
+      POSTGRES_DB: db
       POSTGRES_HOST_AUTH_METHOD: trust
     volumes: 
       - postgres:/var/lib/postgresql/data
-    ports:
-      - "3306"
-    expose:
-      - "3306"
   web: 
     build: .
     volumes: 
-      - .:/docker-rails
+      - .:/myapp
       - bundler_gems:/usr/local/bundle
     ports:
     - "3000:3000"
