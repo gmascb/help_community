@@ -1,17 +1,16 @@
 require 'swagger_helper'
 
-describe 'Home Index API' do
+describe 'Home API' do
 
-    path '/' do
-  
-      get 'Get the Home#index' do
+    path '/hello' do
+      get 'Get the Home#HelloWorld' do
         tags 'Home'
         consumes 'application/json'
         
-        response '201', 'You get the index' do
+        response '201', 'You get the hello world!' do
             schema type: :object,
                     properties: {
-                        hello_world: { type: :string }
+                        msg: { type: :string }
                     }
           run_test!
         end

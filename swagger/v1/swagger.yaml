@@ -4,9 +4,9 @@ info:
   title: API V1
   version: v1
 paths:
-  "/":
+  "/hello":
     get:
-      summary: Get the Home#index
+      summary: Get the Home#HelloWorld
       tags:
       - Home
       consumes:
@@ -17,5 +17,5 @@ paths:
           schema:
             type: object
             properties:
-              hello_world:
+              msg:
                 type: string
