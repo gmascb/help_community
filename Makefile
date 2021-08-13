@@ -1,7 +1,7 @@
 up:
 	docker-compose up
 
-build:
+b:
 	docker-compose up --build
 
 rswag:
