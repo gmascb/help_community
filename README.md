@@ -5,10 +5,10 @@
   * After docker is installed run
     * docker-compose up --build
       * now your service is built and running.
-    * to create the databases in postgresql image run
+    * **To create/modify the databases in postgresql image run**
       * docker exec -it helping_community_web_1 sh
       * $ rake db:create
-      * Remember that every-time you make a new migration for the databases
+      * **Remember that every-time you make a new migration for the databases**
         * usefull commands:
           * rake db:drop
           * rake db:create
