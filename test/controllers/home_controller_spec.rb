@@ -10,7 +10,7 @@ describe 'Hello API' do
       tags 'Home'
       consumes 'application/json'
       
-      response '200', 'blog created' do
+      response '200', 'Hello World!' do
         
         run_test!
       end
