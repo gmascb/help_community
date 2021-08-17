@@ -15,3 +15,6 @@
           * rake db:migrate
           * rake db:seed
         
+  * Scaffolds
+    * ```rails generate scaffold Customer name:string```
+    * ```rails g scaffold Order date:datetime references:Customer```
