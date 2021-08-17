@@ -24,7 +24,7 @@
   * Scaffolds
     * Generate
       * ```rails generate scaffold Customer name:string```
-      * ```rails g scaffold Order date:datetime Customer:references```
+      * ```rails g scaffold Order date:datetime customer:references```
     * Destroy
       * ```rails destroy scaffold Customer```
       * ```rails d scaffold Order```
