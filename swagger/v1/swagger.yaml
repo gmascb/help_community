@@ -13,7 +13,7 @@ paths:
       - application/json
       responses:
         '201':
-          description: You get the index
+          description: You get the hello world!
           schema:
             type: object
             properties:

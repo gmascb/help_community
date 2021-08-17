@@ -9,11 +9,11 @@ default: &default
   pool: 5
   timeout: 5000
   password: 
+  username: #postgresql
   host: <%= ENV['DEVELOPMENT_DATABASE_HOST'] %>
 
 development:
   <<: *default
-  username: postgres
   database: helping_community_development
 
 # Warning: The database defined as "test" will be erased and
@@ -21,7 +21,6 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: postgres
   database: helping_community_test
 
 production:
