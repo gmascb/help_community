@@ -1,4 +1,5 @@
-# spec/integration/blogs_spec.rb
+# spec/integration/hello_controller_spec.rb
+# https://github.com/rswag/rswag
 require 'swagger_helper'
 
 describe 'Hello API' do
