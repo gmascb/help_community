@@ -17,9 +17,14 @@
 
   * Resolving Problems with POSTGRESQL
     * ```make exec_db``` to open postgresql image
-    * ``` psql -U postgres ``` to login psql
+    * ```psql -U postgres ``` to login psql
     * ```CREATE ROLE root WITH LOGIN PASSWORD '';```
     * ```ALTER USER root createdb;```
+  
   * Scaffolds
-    * ```rails generate scaffold Customer name:string```
-    * ```rails g scaffold Order date:datetime references:Customer```
+    * Generate
+      * ```rails generate scaffold Customer name:string```
+      * ```rails g scaffold Order date:datetime customer:references```
+    * Destroy
+      * ```rails destroy scaffold Customer```
+      * ```rails d scaffold Order```
