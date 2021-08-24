@@ -4,31 +4,26 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    render json: Customer.all, status: 200
   end
 
-  # GET /customers/1
-  # GET /customers/1.json
   def show
+    render json: @customer, status: 200
   end
 
-  # POST /customers
-  # POST /customers.json
   def create
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      render :show, status: :created, location: @customer
+      render json: @customer, status: :created
     else
       render json: @customer.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /customers/1
-  # PATCH/PUT /customers/1.json
   def update
     if @customer.update(customer_params)
-      render :show, status: :ok, location: @customer
+      render json: @customer, status: 201 
     else
       render json: @customer.errors, status: :unprocessable_entity
     end
@@ -38,6 +33,8 @@ class CustomersController < ApplicationController
   # DELETE /customers/1.json
   def destroy
     @customer.destroy
+
+    render json: nil, status: 204 
   end
 
   private

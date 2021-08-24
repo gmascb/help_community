@@ -4,6 +4,79 @@ info:
   title: API V1
   version: v1
 paths:
+  "/customers":
+    get:
+      summary: Get all Customers
+      tags:
+      - Customer
+      consumes:
+      - application/json
+      responses:
+        '200':
+          description: customer#index
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Steve Jobs
+    post:
+      summary: Create Customer
+      tags:
+      - Customer
+      consumes:
+      - application/json
+      parameters:
+      - name: customer
+        in: body
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Steve Jobs
+          required:
+          - name
+      responses:
+        '201':
+          description: customer#create
+  "/customers/{id}":
+    get:
+      summary: Get Customer
+      tags:
+      - Customer
+      consumes:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        type: number
+        required: true
+      responses:
+        '200':
+          description: customer#show
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                example: Steve Jobs
+    delete:
+      summary: Delete Customer
+      tags:
+      - Customer
+      consumes:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        type: number
+        required: true
+      responses:
+        '201':
+          description: customer#create
   "/hello":
     get:
       summary: Get the Home#HelloWorld
@@ -12,10 +85,11 @@ paths:
       consumes:
       - application/json
       responses:
-        '201':
+        '200':
           description: You get the hello world!
           schema:
             type: object
             properties:
               msg:
                 type: string
+                example: Hello World!

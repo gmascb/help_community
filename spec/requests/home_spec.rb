@@ -7,7 +7,7 @@ describe 'Home API' do
         tags 'Home'
         consumes 'application/json'
         
-        response '201', 'You get the hello world!' do
+        response '200', 'You get the hello world!' do
             schema type: :object,
                     properties: {
                         msg: { type: :string }

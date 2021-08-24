@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Customer.find_or_create_by!(name: 'Steve Jobs')
+Customer.find_or_create_by!(name: 'Bil Gates')
+Customer.find_or_create_by!(name: 'Jeff Bezos')
+Customer.find_or_create_by!(name: 'Dave Thomas')
+Customer.find_or_create_by!(name: 'Kent Beck')
+Customer.find_or_create_by!(name: 'Martin Fowler')
+
+puts "Seeds OK."
