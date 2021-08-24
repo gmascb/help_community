@@ -13,6 +13,13 @@ describe 'Hello API' do
       consumes 'application/json'
       
       response '200', 'Hello World!' do
+        schema type: :object,
+                  properties: {
+                      msg: {
+                              type: :string,
+                              example: "Hello World!"
+                          }
+                  }
         
         run_test!
       end
